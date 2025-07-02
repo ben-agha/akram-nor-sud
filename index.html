@@ -376,10 +376,10 @@
     /* MOBILE RESPONSIVE STYLES */
     @media (max-width: 768px) {
       .hero {
-    background-size: contain;
-    background-position: top;
-    height: auto;
-    padding: 60px 20px;
+    background-size: cover;      /* Changed from 'contain' */
+    background-position: center; /* Changed from 'top' */
+    height: 300px;              /* Set fixed height instead of auto */
+    padding: 40px 20px;
       }
 
       .hero-logo {
