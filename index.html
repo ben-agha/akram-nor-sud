@@ -208,9 +208,10 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-bottom: 3rem;
+      justify-items: center;
     }
 
     .product-card {
@@ -220,6 +221,8 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
       position: relative;
+      width: 100%;
+      max-width: 350px;
     }
 
     .product-card:hover {
@@ -228,18 +231,19 @@
 
     .product-image {
       width: 100%;
-      height: auto;
+      height: 250px;
       background: #f0f0f0;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
     .product-image img {
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
     }
 
     .sale-badge {
@@ -252,6 +256,7 @@
       border-radius: 20px;
       font-size: 12px;
       font-weight: bold;
+      z-index: 2;
     }
 
     .product-info {
@@ -369,12 +374,17 @@
 
     /* MOBILE RESPONSIVE STYLES */
     @media (max-width: 768px) {
+      .hero {
+        height: 400px;
+        padding: 20px;
+      }
+
       .hero-logo {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       .hero-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
       .hero-btn {
@@ -384,50 +394,139 @@
 
       .nav-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 15px;
       }
 
       .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-        padding-right: 0;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .content-section {
+        padding: 40px 0;
+      }
+
+      .content-title {
+        font-size: 2rem;
+      }
+
+      .content-text {
+        font-size: 1rem;
       }
 
       .content-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+      }
+
+      .btn-outline,
+      .btn-filled {
+        width: 200px;
+        text-align: center;
+      }
+
+      .products-section {
+        padding: 40px 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      .product-card {
+        max-width: 100%;
+      }
+
+      .collections-section {
+        padding: 40px 0;
+      }
+
+      .collection-image {
+        height: 250px;
+        font-size: 14px;
       }
 
       .newsletter-form {
         flex-direction: column;
+        max-width: 300px;
       }
 
       .newsletter-form input,
       .newsletter-form button {
         width: 100%;
-      }
-
-      .collection-image {
-        height: 200px;
-        font-size: 14px;
+        min-width: auto;
       }
     }
 
     @media (max-width: 480px) {
+      .top-header {
+        font-size: 12px;
+        padding: 5px 0;
+      }
+
+      .hero {
+        height: 350px;
+      }
+
       .hero-logo {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .hero-title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+      }
+
+      .nav-menu {
+        gap: 15px;
+      }
+
+      .nav-menu a {
+        font-size: 14px;
+      }
+
+      .content-title {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .products-grid {
+        padding: 0 5px;
+      }
+
+      .product-image {
+        height: 200px;
       }
 
       .btn-outline,
       .btn-filled {
-        width: 90%;
-        text-align: center;
+        width: 180px;
+        padding: 10px 20px;
+        font-size: 14px;
       }
+    }
+
+    /* Link styling for product cards */
+    .products-grid a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+    }
+
+    .products-grid a:hover {
+      text-decoration: none;
     }
   </style>
 </head>
@@ -444,7 +543,7 @@
         <div class="nav-container">
             <a href="index.html">
             <div >
-               <img src="logo-akram-nor.png" alt="stadium icon" width=90" height="30"> 
+               <img src="logo-akram-nor.png" alt="stadium icon" width="90" height="30"> 
             </div>
             </a>
             <ul class="nav-menu">
@@ -526,7 +625,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>
-                        <img src="clima.jpg" alt="مروحة كهربائية" width="100%" height="auto">
+                        <img src="clima.jpg" alt="مروحة كهربائية">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Condor</h3>
@@ -542,7 +641,7 @@
                 <div class="product-card" id="special-offer">
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>
-                        <img src="vent1.png" alt="مروحة كهربائية" width="100%" height="auto">
+                        <img src="vent1.png" alt="مروحة كهربائية">
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">hhhh</h3>
@@ -558,7 +657,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>
-                        <img src="condor.jfif" alt="قلاية هوائية" width="100%" height="auto">
+                        <img src="condor.jfif" alt="قلاية هوائية">
                        
                     </div>
                     <div class="product-info">
@@ -574,7 +673,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>
-                        <img src="nardi.jfif" alt="عجانة ناردي" width="100%" height="auto">                   
+                        <img src="nardi.jfif" alt="عجانة ناردي">                   
                      </div>
                     <div class="product-info">
                         <h3 class="product-name">Condor</h3>
@@ -590,7 +689,7 @@
                 <div class="product-card">
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>
-                        <img src="condor2.jfif" alt="قلاية هوائية" width="100%" height="auto">
+                        <img src="condor2.jfif" alt="قلاية هوائية">
                         
                     </div>
                     <div class="product-info">
@@ -608,7 +707,7 @@
                     <div class="product-image">
                         <div class="sale-badge">Sale</div>     
 
-                        <img src="CRISTOR KF5053B1.jpg" alt="مروحة كهربائية" width="100%" height="auto">
+                        <img src="CRISTOR KF5053B1.jpg" alt="مروحة كهربائية">
                     </div>
 
                     <div class="product-info">
